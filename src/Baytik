@@ -1,0 +1,26 @@
+CREATE TABLE job(
+    id SERIAL PRIMARY KEY ,
+   professions VARCHAR NOT NULL
+);
+
+
+CREATE TABLE employee(
+  id SERIAL PRIMARY KEY ,
+  first_name VARCHAR NOT NULL ,
+ last_name VARCHAR NOT NULL ,
+ email VARCHAR NOT NULL ,
+ date_of_birth DATE UNIQUE ,
+ job_id INTEGER REFERENCES job(id)
+);
+
+
+INSERT INTO job(professions)
+VALUES ('Programmer'),
+       ('eacher');
+
+
+INSERT INTO employee(first_name, last_name, email, date_of_birth, job_id)
+VALUES ('Madina', 'Halkova', 'm@gmail.com', '2006-01-11', 1),
+       ('Alina', 'Saparalieva', 'a@gmail.com', '1995-05-29', 2);
+SELECT * FROM job;
+SELECT * FROM employee;
